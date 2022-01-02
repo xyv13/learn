@@ -4,31 +4,34 @@ import (
 	"testing"
 )
 
-type FindTwoSumFunc func(nums []int, targetSum int) (int, int)
+type FindTwoSumFunc func(nums []int, targetSum int) []int
 
 func testFindTwoSum(t *testing.T, findTwoSumFunc FindTwoSumFunc) {
 	t.Helper()
 
 	type test struct {
-		nums       []int
-		target     int
-		start, end int
+		nums   []int
+		target int
+		result []int
 	}
 
 	nums := []int{1, 3, 7, 9, 2}
 
 	tests := []test{
-		{nums, 11, 3, 4},
-		{nums, 25, -1, -1},
-		{[]int{}, 1, -1, -1},
-		{[]int{1}, 1, -1, -1},
+		{nums, 11, []int{3, 4}},
+		{nums, 25, nil},
+		{[]int{}, 1, nil},
+		{[]int{1}, 1, nil},
 	}
 
 	for _, tc := range tests {
-		start, end := findTwoSumFunc(tc.nums, tc.target)
-		if start != tc.start || end != tc.end {
+		result := findTwoSumFunc(tc.nums, tc.target)
+		if len(result) == 0 && len(tc.result) == 0 {
+			continue
+		}
+		if len(result) != 0 && (result[0] != tc.result[0] || result[1] != tc.result[1]) {
 			t.Fatalf("Invalid computed pair (%d, %d), expected (%d, %d)",
-				start, end, tc.start, tc.end)
+				result[0], result[1], tc.result[0], tc.result[1])
 		}
 	}
 }
