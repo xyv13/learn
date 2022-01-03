@@ -7,6 +7,8 @@ import (
 type maxWaterContainerFunc func(heights []int) int
 
 func testMaxWaterContainer(t *testing.T, maxWaterContainer maxWaterContainerFunc) {
+	t.Helper()
+
 	type test struct {
 		heights []int
 		maxArea int
@@ -26,14 +28,12 @@ func testMaxWaterContainer(t *testing.T, maxWaterContainer maxWaterContainerFunc
 			t.Fatalf("Expected max area to be %d, got %d", tc.maxArea, maxArea)
 		}
 	}
-
 }
 
 func TestMaxWaterContainer(t *testing.T) {
 	t.Run("Testing finding max area container using the brute force algorithm", func(t *testing.T) {
 		testMaxWaterContainer(t, MaxWaterContainerBruteForce)
 	})
-
 	t.Run("Testing finding max area container using the optimized algorithm", func(t *testing.T) {
 		testMaxWaterContainer(t, MaxWaterContainer)
 	})
