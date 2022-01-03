@@ -15,11 +15,9 @@ func testFindTwoSum(t *testing.T, findTwoSumFunc FindTwoSumFunc) {
 		result []int
 	}
 
-	nums := []int{1, 3, 7, 9, 2}
-
 	tests := []test{
-		{nums, 11, []int{3, 4}},
-		{nums, 25, nil},
+		{[]int{1, 3, 7, 9, 2}, 11, []int{3, 4}},
+		{[]int{1, 3, 7, 9, 2}, 25, nil},
 		{[]int{}, 1, nil},
 		{[]int{1}, 1, nil},
 	}
