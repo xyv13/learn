@@ -1,7 +1,7 @@
 package question01
 
-// FindTwoSumBruteForce will find a pair of numbers which sum up to 'target' and
-// return their indices. If no such pair exists, returns (-1, -1).
+// FindTwoSumBruteForce will find a pair of numbers which sums up to 'target' and
+// returns a slice containing their indices. If no such pair exists, returns nil.
 // The time complexity is O(n^2), the space complexity is O(1).
 func FindTwoSumBruteForce(nums []int, target int) []int {
 	for i := range nums {
