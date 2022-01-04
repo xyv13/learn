@@ -16,6 +16,7 @@ func testTrappedRainWater(t *testing.T, trappedRainWater trappedRainWaterFunc) {
 
 	tests := []test{
 		{[]int{0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2}, 8},
+		{[]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}, 6},
 		{[]int{}, 0},
 		{[]int{1}, 0},
 	}

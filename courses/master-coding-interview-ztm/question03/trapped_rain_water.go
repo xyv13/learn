@@ -40,6 +40,7 @@ func TrappedRainWaterBruteForce(heights []int) int {
 }
 
 // TrappedRainWater efficiently solves the quantity of trapped water using the two pointers technique.
+// Time complexity is O(n), space complexity is O(1).
 func TrappedRainWater(heights []int) int {
 	// Keeps the maximum heights seen by the left and right pointers.
 	maxLeft, maxRight := 0, 0
